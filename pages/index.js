@@ -67,15 +67,15 @@ const Home = () => {
   return (
     <div className="root">
       <Head>
-        <title>Your perfect motivation letter</title>
+        <title>Your perfect cover letter</title>
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>Generate your ideal motivation letter</h1>
+            <h1>Generate your ideal cover letter</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Fill some informations and get your perfect motivation letter in a few seconds.</h2>
+            <h2>Fill some informations and get your perfect cover letter in a few seconds.</h2>
           </div>
           
         </div>
