@@ -109,7 +109,7 @@ const Home = () => {
             placeholder="The name of the company you apply for"
             value={userInputCompany}
             onChange={onUserChangedCompany}/>
-            
+
             <textarea
             className="prompt-box"
             placeholder="The company main mission"
@@ -139,7 +139,7 @@ const Home = () => {
           <div className="output">
             <div className="output-header-container">
               <div className="output-header">
-                <h3>Your letter</h3>
+                <h3>Don't forget to double check the letter and personalised it</h3>
               </div>
             </div>
             <div className="output-content">

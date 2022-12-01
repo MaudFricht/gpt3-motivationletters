@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 
 body {
@@ -16,8 +17,7 @@ body {
     flex: 0 0 auto;
     flex-flow: row nowrap;
     gap: 15%;**/
-    height: fit-content;
-    max-width: 975px;
+    height: 100%;
     overflow: auto;
     padding: 50px;
     position: relative;
@@ -61,7 +61,7 @@ body {
     font-weight: 400;
     line-height: 1.4em;
     color: #ff7a66;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Inter , sans-serif;
 }
 
 .prompt-container {
@@ -135,7 +135,7 @@ label {
 
 
 textarea {
-    font-family: 'Manrope', sans-serif;
+    font-family: Inter, sans-serif;
 }
 
 textarea::placeholder {
@@ -242,38 +242,6 @@ color: #7a7a7a;
     background-color: #ff7a66;
 }
 
-.badge-container {
-    display: flex;
-    bottom: 20px;
-    flex: 0 0 auto;
-    height: auto;
-    left: 20px;
-    position: fixed;
-    width: auto;
-    z-index: 1;
-}
-
-.badge-container a {
-    border-bottom-width: 1px;
-    border-color: rgba(255, 255, 255, 0.1);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-style: solid;
-    border-top-width: 1px;
-    background-color: rgb(0, 0, 0);
-    border-radius: 54.3478% / 238.095%;
-    filter: grayscale(1);
-    transform: none;
-    transform-origin: 50% 50% 0px;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1em;
-    color: #fff;
-    padding: 12px;
-    text-decoration: none;
-}
-
 img {
     width: 40px;
     height: auto;
@@ -297,10 +265,10 @@ img {
 }
 
 .output {
-    background-color: #FFE3B3;
+    background-color: #d7d7d75e;
     margin-top: 50px;
     place-content: center flex-start;
-    align-items: center;
+    align-items: left;
     display: flex;
     flex: 0 0 auto;
     flex-flow: column nowrap;
@@ -311,7 +279,8 @@ img {
     position: relative;
     width: 90%;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 8px;
+    padding-bottom: 30px;
 
 }
 
@@ -330,17 +299,15 @@ img {
 }
 
 .output-header h3 {
-    font-family: Codystar, sans-serif;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 800;
-    letter-spacing: 0px;
+    font-family: Inter , sans-serif;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 300;
     line-height: 1.4em;
-    text-align: start;
-    color: #7e1470;
+    text-align: center;
+    color: #1a1919;
     text-decoration: none;
     text-transform: none;
-    margin: 0;
 }
 
 .output-content {
@@ -355,7 +322,6 @@ img {
 }
 
 .output-content p {
-    text-align: center;
     white-space: pre-line;
     color: rgba(23, 23, 23, 0.792);
 }
@@ -384,6 +350,7 @@ img {
     }
 
     .header {
+        position:relative;
         width: auto;
         flex-direction: column;
         align-items: center;
@@ -395,8 +362,13 @@ img {
     }
 
     .prompt-container {
-        max-width: 500px;
-        width: 100%;
+        width: 80%;
+        position:relative;
+        margin: auto;
+    }
+
+    .prompt-group{
+        align-items: center;
     }
 
     .prompt-box {
@@ -434,7 +406,7 @@ img {
 
     .prompt-container {
         max-width: 400px;
-        width: 100%;
+        
     }
 
     .prompt-box {
