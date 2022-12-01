@@ -9,9 +9,12 @@ const openai = new OpenAIApi(configuration);
 const generateAction = async (req, res) => {
   //Get a description of the company requested skills
   const skillsDescriptionPrompt =
-  `Make a summary of the skills requested by this job offer.
-  Company main mission
-  Job offer:  ${req.body.userInputOffer}
+  `Make a summary of this company value proposition and skills they value. Use new words.
+
+  Company Name: ${req.body.userInputCompany}
+  Company Mission: ${req.body.userInputMission}
+  Job offer Requested skills: ${req.body.userInputOffer}
+  Who is the company and what kind of employee are they trying to recruit?
   `
   // Run first prompt
   console.log(`API: ${skillsDescriptionPrompt}`)
@@ -19,25 +22,24 @@ const generateAction = async (req, res) => {
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${skillsDescriptionPrompt}\n`,
-    temperature: 0.5,
+    temperature: 0.4,
     max_tokens: 700,
   });
   
   const basePromptOutput = baseCompletion.data.choices.pop();
-  console.log(basePromptOutput);
+  console.log();
 
   // I build Prompt #2.
   const offerDetailPrompt =
-  `Write a motivation letter for a startup company that includes the problem the company is solving, the help I can bring to the team and the value I will create. Tell why I am the best candidate, why I'm interested in product management and why I want to work for this company. 
-
-  Company Name: ${req.body.userInputCompany}
-  Company Main Mission: ${req.body.userInputMission}
-  
-  Job offer Requested skills: ${basePromptOutput}
+  `Write a convincing motivation letter in the style of Paul Graham, the co-founder of Y-Combinator.for a startup company that includes the problem the company is solving, the help I can bring to the team and the value I will create. Write why I am the best candidate and why I want to work for this company. Don't talk too much about the past experiences but highlight the skills.
+  Company Name: ${req.body.userInputCompany}  
+  Company:  ${basePromptOutput}
   
   Candidate description: ${req.body.userInputJob}
-  Candidate main skills to highligh: ${req.body.userInputSkills}
-  Candidate main past experiences: ${req.body.userInputExp}
+  Candidate main skills: ${req.body.userInputSkills}
+  Candidate past experiences: ${req.body.userInputExp}
+
+  Motivation Letter:
   `
   // I call the OpenAI API a second time with Prompt #2
   const secondPromptCompletion = await openai.createCompletion({
@@ -46,7 +48,7 @@ const generateAction = async (req, res) => {
     // I set a higher temperature for this one. Up to you!
     temperature: 0.85,
 		// I also increase max_tokens.
-    max_tokens: 1250,
+    max_tokens: 1500,
   });
   
   // Get the output
